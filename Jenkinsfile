@@ -4,7 +4,7 @@ pipeline {
 
   stages {
     stage('Install') { steps { sh 'node -v && npm install lodash &&npm ci || npm install' } }
-    stage('Test2')    { steps { sh 'npm test' } }
+    stage('Test')    { steps { sh 'pnpm test' } }
     stage('Build')   { steps { sh 'npm run build' } }
     stage('Deploy') {
       when { expression { params.ENV == 'staging' } }
