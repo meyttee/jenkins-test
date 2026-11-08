@@ -1,0 +1,22 @@
+{
+  "name": "jenkins-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "test": "node -e \"console.log('tests ok')\"",
+  "build": "node -e \"console.log('build ok')\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meyttee/jenkins-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/meyttee/jenkins-test/issues"
+  },
+  "homepage": "https://github.com/meyttee/jenkins-test#readme"
+}
