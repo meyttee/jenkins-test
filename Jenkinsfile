@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  tools { nodejs 'node20' }
+  tools { nodejs 'node24.3.0' }
 
   stages {
     stage('Install') { steps { sh 'node -v && npm ci || npm install' } }
