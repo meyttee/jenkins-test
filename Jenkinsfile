@@ -15,6 +15,7 @@ pipeline {
     }
   }
 
+options { timeout(time: 5, unit: 'SECONDS') }
     parameters {
     choice(name: 'ENV', choices: ['dev', 'staging'], description: 'Target env')
     }
