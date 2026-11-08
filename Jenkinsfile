@@ -4,7 +4,6 @@ pipeline {
 
   stages {
     stage('Install') { steps {
-        sh 'sleep 5'
         sh 'node -v && npm install lodash &&npm ci || npm install'
         } }
     stage('Test')    { steps { sh 'npm test' } }
