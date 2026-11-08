@@ -7,7 +7,7 @@ pipeline {
         sh 'sleep 5'
         sh 'node -v && npm install lodash &&npm ci || npm install'
         } }
-    stage('Test')    { steps { sh 'pnpm test' } }
+    stage('Test')    { steps { sh 'npm test' } }
     stage('Build')   { steps { sh 'npm run build' } }
     stage('Deploy') {
       when { expression { params.ENV == 'staging' } }
@@ -15,7 +15,7 @@ pipeline {
     }
   }
 
-options { timeout(time: 5, unit: 'SECONDS') }
+  options { timeout(time: 5, unit: 'SECONDS') }
     parameters {
     choice(name: 'ENV', choices: ['dev', 'staging'], description: 'Target env')
     }
