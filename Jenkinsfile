@@ -16,20 +16,11 @@ pipeline {
       steps {
         script {
           def img = docker.build("localhost:5000/jenkins-test:${env.BUILD_NUMBER}")
-          // img.inside { sh 'node -v' }
-        }
-      }
-    }
-
-    stage('Push') {
-      steps {
-        script {
-            img.push()
+          img.push()
         }
       }
     }
   }
-
   post {
     failure { echo 'Build broke!' }
   }
