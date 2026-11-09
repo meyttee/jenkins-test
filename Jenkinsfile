@@ -12,26 +12,26 @@ pipeline {
       when { expression { params.ENV == 'staging' } }
       steps { echo "Deploying to ${params.ENV}" }
     }
-  }
 
-  stage('Docker Build') {
-  steps {
-    script {
-      def img = docker.build("jenkins-test:${env.BUILD_NUMBER}")
-      img.inside { sh 'node -v' }
+    stage('Docker Build') {
+      steps {
+        script {
+          def img = docker.build("jenkins-test:${env.BUILD_NUMBER}")
+          img.inside { sh 'node -v' }
+        }
+      }
     }
-  }
-}
 
-stage('Push') {
-  steps {
-    script {
-      docker.withRegistry('localhost:5000') {
-        img.push()
+    stage('Push') {
+      steps {
+        script {
+          docker.withRegistry('localhost:5000') {
+            img.push()
+          }
+        }
       }
     }
   }
-}
 
   options { timeout(time: 5, unit: 'SECONDS') }
     parameters {
