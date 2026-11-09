@@ -25,7 +25,7 @@ pipeline {
     stage('Push') {
       steps {
         script {
-          docker.withRegistry('localhost:5000') {
+          docker.withRegistry('http://localhost:5000') {
             img.push()
           }
         }
