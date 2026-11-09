@@ -16,7 +16,7 @@ pipeline {
     stage('Docker Build') {
       steps {
         script {
-          def img = docker.build("jenkins-test:${env.BUILD_NUMBER}")
+          def img = docker.build("localhost:5000/jenkins-test:${env.BUILD_NUMBER}")
           img.inside { sh 'node -v' }
         }
       }
